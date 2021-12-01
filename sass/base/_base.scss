@@ -1,0 +1,61 @@
+
+/* we no longer need normalize, universal selector * is enough */
+
+*,
+*::before,
+*::after {
+   padding: 0;
+   margin: 0;
+   box-sizing: inherit;
+}
+
+ 
+/* the root font size is set in the html */
+/* 1)
+    bad practice: cuz people may increase their browser font sizes to see properly 
+    and setting it with px here means that our website font will remain 16px no matter the user browser 
+    font size changed or not 
+    */ 
+/* font-size: 10px; */
+
+/* 2) the right way is to use %, default browser font size: 16 px, to make font-size 10px using % :
+    (10/16) *100 
+ */
+
+html {
+	// this defines what 1rem is
+	font-size: 62.5%; // 1rem = 16px , 10/16 = 62.5%
+
+    // @include respond-phone {
+    //     font-size: 50%;
+    // }
+
+    
+    // width < 1200? 
+    @include respond(tab-land) { 
+        font-size: 65.52%; // 1rem = 9px, 9/16 = 50%
+    }
+    
+    // width < 900? 
+    @include respond(tab-port) {
+        font-size: 50%; // 1rem = 8px, 8/16 = 50%
+    }
+
+    @include respond(big-desktop) {
+        font-size: 75%; // 1rem = 12px, 12/16= 75%
+    }
+}
+ 
+body {
+	box-sizing: border-box;
+    padding: 3rem;
+
+    @include respond(tab-port) { 
+        padding: 0;
+    }
+}
+ 
+::selection {
+    background-color: $color-primary;
+    color: #fff;
+}

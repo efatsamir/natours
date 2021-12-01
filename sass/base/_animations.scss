@@ -1,0 +1,62 @@
+ 
+ /* for browser performance: we should't exceed 2 properties in animation as maximum */
+ 
+ @keyframes moveInLeft {
+ 
+    0% {
+       opacity: 0;
+       @include prefixes(transform, translateX(-10rem));
+       transform: translateX(-10rem);
+    }
+ 
+    80% {
+        @include prefixes(transform, translateX(1rem));
+        transform: translateX(1rem);
+    }
+ 
+    100% {
+        opacity: 1;
+        @include prefixes(transform, translate(0));
+        transform: translate(0);
+    }
+ }
+ 
+
+
+ @keyframes moveInRight {
+    0% {
+        opacity: 0;
+        @include prefixes(transform,  translateX(10rem));
+        transform: translateX(10rem);
+    }
+ 
+    80% {
+        @include prefixes(transform, translateX(-1rem));
+        transform: translateX(-1rem);   
+    }
+  
+    100% {
+        opacity: 1;
+        @include prefixes(transform, translateX(0));
+        transform: translate(0);
+        
+    }
+ }
+ 
+ 
+ @keyframes moveInBottom {
+     0% {
+        @include prefixes(transform, translateY(3rem));
+         transform: translateY(3rem);
+         opacity: 0;
+         
+}
+ 
+     100% {
+        @include prefixes(transform, translate(0));
+         transform: translate(0);
+         opacity: 1;
+     }
+ }
+ 
+ 

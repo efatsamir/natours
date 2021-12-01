@@ -1,0 +1,100 @@
+body {
+	font-family: "Lato", sans-serif;
+	font-weight: 400;
+	color: $color-grey-dark;
+	line-height: 1.7;
+	
+}
+
+.heading-primary {
+    /* removes the shake happens in animation & make it more natural */
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    margin-bottom: 6rem;
+
+   &--main,
+   &--sub { display: block}
+
+   &--main {
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+        animation: moveInLeft 1s ease-out;
+        -webkit-animation: moveInLeft 1s ease-out; 
+
+        @include respond(phone) {
+            font-size: 5rem;
+            letter-spacing: 1rem;
+        }
+
+   }
+
+   &--sub {
+       font-size: 2rem;
+       font-weight: 700;
+       letter-spacing: 1.75rem;
+       animation: moveInRight 1s ease-out;
+       -webkit-animation: moveInRight 1s ease-out;
+
+       @include respond(phone) {
+        letter-spacing: 0.5rem;
+       }
+   }
+
+   
+}
+
+.heading-secondary {
+     font-size: 3.5rem;
+     text-transform: uppercase;
+     font-weight: 700;
+     letter-spacing: 2px;
+    //  display: inline-block;
+     width: fit-content;
+     background-image: linear-gradient(
+          to right,
+           $color-primary-light,          
+           $color-primary-dark    
+           );
+     -webkit-background-clip: text;
+     background-clip: text;
+     //text will be on top of clippedbackgr so make text
+     //transp to seeit
+     color: transparent;
+     @include prefixes(transition, all .2s);
+     transition: all .2s;
+     
+     @include respond(tab-port) {
+        font-size: 3rem;
+     }
+
+     @include respond(phone) {
+        font-size: 2.5rem;
+       }
+
+     
+    &:hover {
+        @include prefixes(transform, skew(15deg, 2deg) scale(1.1));
+        transform: skew(15deg, 2deg) scale(1.1);
+        text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
+    } 
+}
+
+
+.heading-tertiary {
+    font-size: $default-font-size;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.paragraph {
+  font-size: $default-font-size;
+
+  &:not(:last-child) {
+      margin-bottom: 3rem;
+  }
+   
+    
+}
+

@@ -1,2 +1,2 @@
 # natours
-responsive landing page
+responsive landing page using sass
